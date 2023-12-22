@@ -11,8 +11,14 @@ import os
 
 app = Flask(__name__)
 
-# Load spaCy NER model
-nlp = spacy.load("en_core_web_sm")
+try:
+    nlp = spacy.load("en_core_web_trf")
+except:
+    print("Downloading spaCy NLP model...")
+    print("This may take a few minutes and it's one time process...")
+    os.system(
+        "pip install https://huggingface.co/spacy/en_core_web_trf/resolve/main/en_core_web_trf-any-py3-none-any.whl")
+    nlp = spacy.load("en_core_web_trf")
 
 # Extract text from PDFs
 def extract_text_from_pdf(pdf_path):
