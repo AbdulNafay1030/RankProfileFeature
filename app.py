@@ -5,6 +5,7 @@ import PyPDF2
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from flask import send_file
+import en_core_web_sm
 import re
 import csv
 import os
